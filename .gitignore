@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# GCP credential file used by Service Account
+service_account_key.json

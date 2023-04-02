@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recaptcha Enterprise</title>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=<%= recaptchaSiteKey %>"></script>
+  </head>
+  <body>
+    <div>
+      <button id="get-score">Get Score</button>
+      <div id="ribbon">
+        <div id="ribbon-content"></div>
+      </div>
+    </div>
+
+    <script>
+      // run recaptcha when button get-score is clicked
+      document
+        .getElementById("get-score")
+        .addEventListener("click", function () {
+          const action = "homepage"
+          grecaptcha.enterprise.ready(function () {
+            grecaptcha.enterprise
+              .execute("<%= recaptchaSiteKey %>", { action })
+              .then(function (token) {
+                // send token to server
+                fetch("/api/verify", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json"
+                  },
+                  body: JSON.stringify({ token, action })
+                })
+                  .then(function (response) {
+                    return response.json()
+                  })
+                  .then(function (data) {
+                    /**
+                     * Create a validation based on score returned from server
+                     */
+                    const ribbon = document.getElementById("ribbon")
+                    const ribbonContent = document.getElementById("ribbon-content")
+                    const getScoreBtn = document.getElementById("get-score")
+
+                    if (data.score > "<%= recaptchaThreshold %>") {
+                      ribbon.style.backgroundColor = "green"
+                    } else {
+                      ribbon.style.backgroundColor = "red"
+                      getScoreBtn.disabled = true
+                    }
+                    ribbon.style.color = "white"
+                    ribbonContent.innerHTML = "Score: " + data.score
+                  })
+              })
+          })
+        })
+    </script>
+  </body>
+</html>
