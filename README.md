@@ -7,7 +7,7 @@ This is a demo application that shows how to use Recaptcha Enterprise with Node.
 - Node.js installed on your machine
 - A Google Cloud project with Recaptcha Enterprise API enabled
 - Recaptcha Enterprise API key
-- Service Account Key in `.json` format
+- Service Account Key in `.json` format with reCAPTCHA Enterprise Agent role
 
 ## Installation
 
