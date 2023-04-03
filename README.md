@@ -32,7 +32,7 @@ RECAPTCHA_THRESHOLD=your_recaptcha_threshold
 PROJECT_ID=your_project_id
 ```
 
-4. Copy Service Account Key file and paste in the same directory as `index.js`, rename it to `service_account_key.json`
+4. Copy Service Account Key file and paste in the same directory as `server.js`, rename it to `service_account_key.json`
 
 ## Usage
 
