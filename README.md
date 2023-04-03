@@ -46,7 +46,7 @@ npm start
 
 3. You should see a single button. Click it to get the score.
 
-4. If the Recaptcha challenge is successful, it will show green ribbon. If the challenge fails, it will show red ribbon and the button is disabled.
+4. If the Recaptcha score is above threshold, it will show green ribbon. If the score below threshold, it will show red ribbon and the button is disabled.
 
 ## Notes
 
