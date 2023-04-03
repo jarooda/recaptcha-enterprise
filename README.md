@@ -50,7 +50,7 @@ npm start
 
 ## Notes
 
-- This demo uses the @google-cloud/recaptchaenterprise package to interact with Recaptcha Enterprise API.
+- This demo uses the `@google-cloud/recaptchaenterprise` package to interact with Recaptcha Enterprise API.
 - The demo includes a simple Express.js server and a HTML templates to illustrate how to integrate Recaptcha Enterprise with your website.
 - This is a demo and not intended for production use. Please make sure to follow best practices and guidelines when implementing Recaptcha Enterprise in your production environment.
 - For more information, refer to [reCAPTCHA Enterprise ](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment) docs.
